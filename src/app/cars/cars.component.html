@@ -1,4 +1,5 @@
 <input type="text" class="form-control" [(ngModel)] = "carName" >
+<input type="text" class="form-control" [(ngModel)] = "carYear" >
 <button  class="btn btn-primary " (click)="pressButton()"  >Добавить машину</button>
 <p *ngIf="!addCarStatusNew; else asd">Машина не добавлена</p>
 <ng-template #asd>
@@ -6,37 +7,14 @@
 
 </ng-template>
 
-<button [disabled]="!canAddCar" class="btn btn-primary " (click)=" addCar()" >Добавить</button>
-<p>{{addCarStatus}}</p>
-<hr>
-
-<!--<app-car *ngFor="let c of cars  "></app-car>-->
-
-
-<ul *ngFor="let car of cars; let idx=index">
-
-  <div
-    [ngStyle]="{backgroundColor: (idx+1) %2 == 0 ? 'red' : 'aqua', 'color': 'white'}"
-    [ngClass]="{'big-text': setBigText(car)}"
-  >
-
-    <b>{{idx}}</b> - <i>{{car}}</i></div>
-
-
-</ul>
-
-<!--
-<ul *ngFor="let item of items; let idx=index">
-  <li> {{item.id}} - <i>{{item.name}}</i></li>
-  <li> {{idx}} - <i>{{item.name}}</i></li>
-
-
-</ul>
--->
-
-
 
 <hr>
-<input type="text" class="form-control" (keyup.enter)= "onKeyUp($event )" >
-<input type="text" class="form-control" [(ngModel)] = "inputText" >
-<p>{{inputText}}</p>
+
+
+
+  <app-car *ngFor="let car of cars" [carItem]="car" ></app-car>
+
+
+
+
+

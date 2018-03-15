@@ -11,6 +11,7 @@ export class CarsComponent  {
  addCarStatus = '';
   inputText = '';
   carName = '';
+  carYear = null;
 
   addCarStatusNew = false;
 
@@ -20,15 +21,21 @@ export class CarsComponent  {
     }, 4000);
 
   }
-cars = ['Ford', 'Audi', 'BMW', 'Mazda', 'Lada'];
+cars: [{name: string, year: number }] = [
+  {name : 'Ford', year: 2011},
+  {name : 'Audi', year: 2011},
+  {name : 'BMW', year: 2011},
+  {name : 'Lada', year: 2011},
+  ];
+
   pressButton() {
     this.addCarStatusNew = true;
-    this.cars.push(this.carName);
+    this.cars.push({name: this.carName, year: this.carYear});
     this.carName = '';
+    this.carYear = null;
   }
 
-  items = [{id: 4, name: 'петя'}, {id: 78, name: 'Вася'}, {id: 4, name: 'Коля'}];
-  private a: boolean;
+
 
   addCar() {
 this.addCarStatus = 'Машина добавленв';
@@ -40,12 +47,4 @@ this.addCarStatus = 'Машина добавленв';
   }
 
 
-  setBigText(car){
-    this.a = false;
-    if(car.length > 4){
-      this.a = true;
-      return this.a ;
-    }
-
-  }
 }

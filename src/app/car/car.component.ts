@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-car',
@@ -7,11 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CarComponent  {
 
-  carName  = 'Ford';
-  year = '2017';
+  @Input('carItem')   rere: {name: string, year: number };
 
-getName() {
-  return this.carName;
-}
+
 
 }
