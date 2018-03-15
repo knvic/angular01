@@ -7,20 +7,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CarsComponent  {
 
- canAddCar = false;
- addCarStatus = '';
-  inputText = '';
-  carName = '';
-  carYear = null;
-
-  addCarStatusNew = false;
-
   constructor() {
-    setTimeout(() => {
-      this.canAddCar = true;
-    }, 4000);
+ }
 
-  }
+
 cars: [{name: string, year: number }] = [
   {name : 'Ford', year: 2011},
   {name : 'Audi', year: 2011},
@@ -28,23 +18,8 @@ cars: [{name: string, year: number }] = [
   {name : 'Lada', year: 2011},
   ];
 
-  pressButton() {
-    this.addCarStatusNew = true;
-    this.cars.push({name: this.carName, year: this.carYear});
-    this.carName = '';
-    this.carYear = null;
+  addCarItem(car: {name: string, year: number }) {
+    this.cars.push(car);
   }
-
-
-
-  addCar() {
-this.addCarStatus = 'Машина добавленв';
-  }
-
-  onKeyUp(event) {
-
-    this.inputText = event.target.value;
-  }
-
 
 }
